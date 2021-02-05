@@ -1,2 +1,2 @@
 # grpc-in-go
-Build microservices communicating thourgh gRPC in Golang
+Build microservices communicating through gRPC in Golang

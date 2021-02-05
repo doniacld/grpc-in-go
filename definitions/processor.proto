@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "github.com/doniacld/grpc-in-go/reader"
+
+package processor
+
+// The service processor definition.
+service Processor {
+	// Process the players
+	rpc Process(ProcessRequest) ProccessResponse {};
+}
+
+// The request message to process.
+message ProcessRequest {
+	string playerName;
+	int age;
+}
+
+// The response message containing the player details.
+message ProcessResponse {
+	string playerName;
+	int age:
+}

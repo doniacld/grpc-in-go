@@ -15,16 +15,16 @@ func main() {
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", 9000))
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		log.Fatalf("failed to listen: %v", err.Error())
 	}
 
 	s := protos.Server{}
 
 	grpcServer := grpc.NewServer()
 
-	protos.RegisterMoodAPIServer(grpcServer, &s)
+	protos.RegisterTrackerAPIServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %s", err)
+		log.Fatalf("failed to serve: %s", err.Error())
 	}
 }

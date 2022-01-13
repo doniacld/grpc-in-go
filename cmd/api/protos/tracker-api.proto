@@ -8,27 +8,22 @@ option go_package = "github.com/doniacld/grpc-in-go/cmd/api/protos";
 
 // MoodType, the possible values for a mood.
 enum MoodState {
-  // Happy feeling
-  Happy = 0;
-  // Sad feeling
-  Sad = 1;
+  Happy = 0;  // Happy feeling
+  Sad = 1;   // Sad feeling
 }
 
 // Mood definition.
 message Mood {
-  // MoodState defines the mood state among defined values
-  MoodState State = 1;
+  MoodState State = 1;   // MoodState defines the mood state among defined values.
 }
 
 message DailyLog {
-  // Date following the epoch format.
-  int64 Date = 1;
-  // Mood log of the day
-  Mood Mood = 2;
+  int64 Date = 1;  // Date following the epoch format.
+  Mood Mood = 2;   // Mood log of the day.
 }
 
-// TrackerAPI is the service holding track operations methods
+// TrackerAPI is the service holding track operations methods.
 service TrackerAPI {
-  // CreateLog adds the given mood
+  // CreateLog adds the given mood.
   rpc CreateLog (DailyLog) returns (google.protobuf.Empty);
 }

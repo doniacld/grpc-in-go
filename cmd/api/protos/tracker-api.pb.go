@@ -25,10 +25,8 @@ const (
 type MoodState int32
 
 const (
-	// Happy feeling
-	MoodState_Happy MoodState = 0
-	// Sad feeling
-	MoodState_Sad MoodState = 1
+	MoodState_Happy MoodState = 0 // Happy feeling
+	MoodState_Sad   MoodState = 1 // Sad feeling
 )
 
 // Enum value maps for MoodState.
@@ -76,8 +74,7 @@ type Mood struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// MoodState defines the mood state among defined values
-	State MoodState `protobuf:"varint,1,opt,name=State,proto3,enum=tracker.MoodState" json:"State,omitempty"`
+	State MoodState `protobuf:"varint,1,opt,name=State,proto3,enum=tracker.MoodState" json:"State,omitempty"` // MoodState defines the mood state among defined values.
 }
 
 func (x *Mood) Reset() {
@@ -124,10 +121,8 @@ type DailyLog struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Date following the epoch format.
-	Date int64 `protobuf:"varint,1,opt,name=Date,proto3" json:"Date,omitempty"`
-	// Mood log of the day
-	Mood *Mood `protobuf:"bytes,2,opt,name=Mood,proto3" json:"Mood,omitempty"`
+	Date int64 `protobuf:"varint,1,opt,name=Date,proto3" json:"Date,omitempty"` // Date following the epoch format.
+	Mood *Mood `protobuf:"bytes,2,opt,name=Mood,proto3" json:"Mood,omitempty"`  // Mood log of the day.
 }
 
 func (x *DailyLog) Reset() {

@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TrackerAPIClient interface {
-	// CreateLog adds the given mood
+	// CreateLog adds the given mood.
 	CreateLog(ctx context.Context, in *DailyLog, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
@@ -48,7 +48,7 @@ func (c *trackerAPIClient) CreateLog(ctx context.Context, in *DailyLog, opts ...
 // All implementations must embed UnimplementedTrackerAPIServer
 // for forward compatibility
 type TrackerAPIServer interface {
-	// CreateLog adds the given mood
+	// CreateLog adds the given mood.
 	CreateLog(context.Context, *DailyLog) (*emptypb.Empty, error)
 	mustEmbedUnimplementedTrackerAPIServer()
 }

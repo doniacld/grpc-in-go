@@ -12,12 +12,12 @@ Install all dependencies by running
 
 or install them manually like below.
 
-Install protoc dependencies to generate the client and the server in Go from the proto file
+Install protoc dependencies to generate the client and the server in Go from the proto file:
 
     $ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
     $ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
-Install [grpcurl](https://github.com/fullstorydev/grpcurl) to test easily gRPC request
+Install [grpcurl](https://github.com/fullstorydev/grpcurl) to easily test  gRPC request:
 
     $ go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 
@@ -41,3 +41,4 @@ Hit `Ctrl-C` to kill it.
 ## Resources
 
 - [gRPC standard methods: Create](https://google.aip.dev/133)
+- [gRPC standard language guide: Adding Comments](https://developers.google.com/protocol-buffers/docs/proto3#adding_comments)

@@ -21,14 +21,16 @@ func TestNewLog(t *testing.T) {
 		{name: "nominal", date: testDate, mood: Mood{State: "happy"}, want: LogEntry{date: testDate, mood: Mood{"happy"}}},
 		{name: "error case", date: time.Now().Add(time.Hour * 12), mood: Mood{State: "happy"}, wantErr: ErrInvalidDate},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := NewLogEntry(tt.date, tt.mood)
 			if tt.wantErr != nil {
 				assert.ErrorIs(t, tt.wantErr, err)
-				return
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want, got)
 			}
-			assert.Equal(t, tt.want, got)
 		})
 	}
 }

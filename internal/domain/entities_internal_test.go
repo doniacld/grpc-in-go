@@ -9,7 +9,7 @@ import (
 
 func TestNewLog(t *testing.T) {
 
-	now := time.Now()
+	testDate := time.Date(1993, time.November, 10, 0, 0, 0, 0, time.Local)
 
 	tests := []struct {
 		name    string
@@ -18,11 +18,11 @@ func TestNewLog(t *testing.T) {
 		want    LogEntry
 		wantErr error
 	}{
-		{name: "nominal", date: now, mood: Mood{state: "happy"}, want: LogEntry{date: now, mood: Mood{"happy"}}},
+		{name: "nominal", date: testDate, mood: Mood{State: "happy"}, want: LogEntry{date: testDate, mood: Mood{"happy"}}},
+		{name: "error case", date: time.Now().Add(time.Hour * 12), mood: Mood{State: "happy"}, wantErr: ErrInvalidDate},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
 			got, err := NewLogEntry(tt.date, tt.mood)
 			if tt.wantErr != nil {
 				assert.ErrorIs(t, tt.wantErr, err)

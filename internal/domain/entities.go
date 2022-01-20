@@ -1,6 +1,8 @@
 package domain
 
-import "time"
+import (
+	"time"
+)
 
 // ErrInvalidDate is returned when the date is in the future.
 const ErrInvalidDate = Error("date is in the future")
@@ -28,5 +30,5 @@ type MoodState string
 
 // Mood defines the mood log.
 type Mood struct {
-	state MoodState
+	State MoodState
 }
